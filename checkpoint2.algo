@@ -1,6 +1,19 @@
-ALGORITHM algorithm_name
-VAR
-    set_declarations
-BEGIN
-    set_instructions
-END
+function insertionSort(arr) {
+    // Loop through the array starting from the second element
+    for (let i = 1; i < arr.length; i++) {
+        let aux = arr[i]; // Pick the element to insert
+        let j = i - 1;
+
+        // Move elements of arr[0..i-1] that are greater than aux
+        // to one position ahead of their aux position
+        while (j >= 0 && arr[j] > aux) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        // Insert the current element into its correct position
+        arr[j + 1] = aux;
+    }
+
+    return arr;
+}
